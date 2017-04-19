@@ -5,7 +5,6 @@ set("server.telnet", true)
 set("server.telnet.port", 1234)
 # set("init.daemon.pidfile.path", "/var/run/airtime/airtime-liquidsoap.pid")
 
-%include "library/pervasives.liq"
 
 #Dynamic source list
 #dyn_sources = ref []
@@ -180,7 +179,7 @@ server.register(namespace="dynamic_source",
 default = amplify(id="silence_src", 0.00001, noise())
 ref_off_air_meta = ref off_air_meta
 if !ref_off_air_meta == "" then
-    ref_off_air_meta := "Airtime - offline"
+    ref_off_air_meta := "LibreTime - offline"
 end
 default = rewrite_metadata([("title", !ref_off_air_meta)], default)
 ignore(output.dummy(default, fallible=true))
